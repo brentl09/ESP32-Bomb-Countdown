@@ -13,3 +13,7 @@ This is only a harmless electronics project for testing and educational purposes
 * SH1106 OLED display
 * Buzzer
 * LED
+
+## Purpose
+
+I made this project to learn more about the ESP32 and get more experience with electronics, RFID, displays, timers and programming.
