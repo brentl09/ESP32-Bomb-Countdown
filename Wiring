@@ -1,0 +1,37 @@
+(the original wiring diagram was made on paper, the diagram below is made by ai just to simplify things)
+============================================================
+  WIRING DIAGRAM - ESP32 BOMB PROJECT
+============================================================
+
+RC522 (card reader, SPI)
+------------------------------------------------------------
+  VCC   ----------------->  ESP32 3V3
+  GND   ----------------->  ESP32 GND
+  RST   ----------------->  GPIO27
+  MISO  ----------------->  GPIO19   (fixed, hardware SPI)
+  MOSI  ----------------->  GPIO23   (fixed, hardware SPI)
+  SCK   ----------------->  GPIO18   (fixed, SPI clock)
+  NSS   ----------------->  GPIO5    (also called SDA/SS)
+  IRQ   ----------------->  do not connect
+
+OLED SH1106 (display, I2C)
+------------------------------------------------------------
+  GND   ----------------->  ESP32 GND
+  VCC   ----------------->  ESP32 3V3
+  SDA   ----------------->  GPIO21   (I2C data)
+  SCL   ----------------->  GPIO22   (I2C clock)
+
+LED (red, with ~220-330 ohm resistor)
+------------------------------------------------------------
+  Anode (+)   ----------->  GPIO17   (through resistor)
+  Cathode (-) ----------->  ESP32 GND
+
+Buzzer (sound)
+------------------------------------------------------------
+  +  --------------------->  GPIO16
+  -  --------------------->  ESP32 GND
+
+============================================================
+  Note: connect all VCCs to the same 3V3 and all GNDs to
+  the same GND (or a shared GND rail on the breadboard).
+============================================================
