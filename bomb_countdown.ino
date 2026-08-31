@@ -125,6 +125,17 @@ void updateHoldToDefuse() {
       showLoadingBar(wholeSecondsHeld);
     }
 
+    unsigned long elapsed = millis() - countdownStartMillis;
+    long remainingMs = (long)TOTAL_TIME_MS - (long)elapsed;
+    if (remainingMs < 0) remainingMs = 0;
+
+    unsigned long beepInterval = getBeepInterval(remainingMs);
+    unsigned long beepDuration = constrain(beepInterval / 2, 50, 250);
+    if (millis() - lastBeepMillis >= beepInterval) {
+      lastBeepMillis = millis();
+      triggerTick(2200, beepDuration);
+    }
+
     if (heldFor >= HOLD_REQUIRED_MS) {
       defuseBomb();
     }
