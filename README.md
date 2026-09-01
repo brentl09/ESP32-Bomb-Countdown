@@ -1,4 +1,4 @@
-# ESP32 Bomb Countdown
+# ESP32 Countdown
 
 A small ESP32 project made for learning and testing electronics, RFID and programming.
 
